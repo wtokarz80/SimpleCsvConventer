@@ -2,4 +2,4 @@ target/
 .idea/
 *.iml
 *.ddl
-csvconverter.iml
+simpleCsvConventer.iml
