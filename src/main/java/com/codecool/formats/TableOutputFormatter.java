@@ -1,6 +1,8 @@
 package com.codecool.formats;
 
 import com.jakewharton.fliptables.FlipTable;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -9,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Component
 public class TableOutputFormatter implements OutputFormatter{
 
     @Override

@@ -1,10 +1,12 @@
 package com.codecool.formats;
 
+import org.springframework.stereotype.Component;
+
 import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Component
 public class XmlOutputFormatter implements OutputFormatter{
 
     @Override
