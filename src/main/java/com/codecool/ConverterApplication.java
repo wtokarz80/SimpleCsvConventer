@@ -35,10 +35,11 @@ public class ConverterApplication {
         }
 
         AppConfig.path = filePath;
+        AppConfig.formatType = formatType;
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         File file = applicationContext.getBean(File.class);
         SimpleCsvConverter simpleCsvConverter = applicationContext.getBean(SimpleCsvConverter.class);
-        simpleCsvConverter.convert(file, formatType);
+        simpleCsvConverter.convert(file);
 
     }
 }

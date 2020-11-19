@@ -13,20 +13,18 @@ import java.io.File;
 public class SimpleCsvConverter {
 
     private ReadFile readFile;
+    private OutputFormatter outputFormatter;
 
     @Autowired
-    public SimpleCsvConverter(ReadFile readFile){
+    public SimpleCsvConverter(ReadFile readFile, OutputFormatter outputFormatter){
+        this.outputFormatter = outputFormatter;
         this.readFile = readFile;
     }
 
 
-    public void convert(File file, FormatType formatType){
-
-        OutputFormatter outputFormatter = new OutputFormatterFactory().createByFormat(formatType);
+    public void convert(File file){
         outputFormatter.prepareData(readFile.readData(file));
         outputFormatter.printToConsole();
-
-
     }
 
 }

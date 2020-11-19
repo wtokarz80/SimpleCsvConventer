@@ -10,6 +10,9 @@ public class OutputFormatterFactory {
         else if (outputFormatType == FormatType.XML){
             return new XmlOutputFormatter();
         }
+        else if (outputFormatType == FormatType.TABLE){
+            return new TableOutputFormatter();
+        }
         return new TableOutputFormatter();
 
     }
