@@ -4,32 +4,14 @@ import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
 import org.springframework.stereotype.Component;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Component
-public class JsonOutputFormatter implements OutputFormatter{
+public class JsonOutputFormatter extends OutputFormatter{
 
     @Override
-    public void printToConsole(BufferedReader data) {
-        List<String[]> rows = new ArrayList<>();
-        try {
-            String line = "";
-            while ((line = data.readLine()) != null) {
-                String[] values = line.split(",");
-                rows.add(values);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        String[] headers = rows.get(0);
-        String[][] content = new String[rows.size()-1][rows.get(0).length];
-        for (int i = 0; i < rows.size()-1; i++){
-            System.arraycopy(rows.get(i + 1), 0, content[i], 0, rows.get(0).length);
-        }
-
+    public void printToConsole() {
         JsonFactory jsonFactory = new JsonFactory();
         try (JsonGenerator jsonGenerator = jsonFactory.createGenerator(System.out)) {
 

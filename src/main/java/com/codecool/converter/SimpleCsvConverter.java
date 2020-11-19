@@ -23,7 +23,9 @@ public class SimpleCsvConverter {
     public void convert(File file, FormatType formatType){
 
         OutputFormatter outputFormatter = new OutputFormatterFactory().createByFormat(formatType);
-        outputFormatter.printToConsole(readFile.readData(file));
+        outputFormatter.prepareData(readFile.readData(file));
+        outputFormatter.printToConsole();
+
 
     }
 
