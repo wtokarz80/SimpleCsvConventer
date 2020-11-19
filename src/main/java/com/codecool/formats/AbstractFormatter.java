@@ -1,4 +1,4 @@
 package com.codecool.formats;
 
-public class OutputFormatTable {
+public class AbstractFormatter {
 }

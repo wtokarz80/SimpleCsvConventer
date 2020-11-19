@@ -6,22 +6,17 @@ import java.io.FileNotFoundException;
 
 public class ReadFile {
 
-    private File file;
-    private BufferedReader br;
+    public ReadFile(){}
 
-    ReadFile(){}
 
-    public ReadFile(File file){
-        this.file = file;
-
-    }
-
-    public void readCSVFile() {
+    public BufferedReader readData(File file) {
+        BufferedReader br = null;
         try {
-            br = new BufferedReader(new java.io.FileReader(file));
+           br = new BufferedReader(new java.io.FileReader(file));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        return br;
     }
 
 }

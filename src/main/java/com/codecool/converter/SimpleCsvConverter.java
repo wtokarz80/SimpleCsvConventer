@@ -1,7 +1,9 @@
 package com.codecool.converter;
 
-import com.codecool.formats.OutputFormat;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.codecool.fileReader.ReadFile;
+import com.codecool.formats.FormatType;
+import com.codecool.formats.OutputFormatter;
+import com.codecool.formats.OutputFormatterFactory;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
@@ -9,30 +11,18 @@ import java.io.File;
 @Component
 public class SimpleCsvConverter {
 
-    private File file;
-    private OutputFormat outputFormat;
+    private ReadFile readFile;
 
-    @Autowired
-    public SimpleCsvConverter(File file){
-        this.file = file;
+    public SimpleCsvConverter(ReadFile readFile){
+        this.readFile = readFile;
     }
 
-    public OutputFormat getOutputFormat() {
-        return outputFormat;
-    }
 
-    @Autowired(required = false)
-    public void setOutputFormat(OutputFormat outputFormat) {
-        this.outputFormat = outputFormat;
-    }
+    public void convert(File file, FormatType formatType){
 
-    public void convert(){
-//        example:
-//        String message = producer.getMessage();
-//        message = decorator != null? decorator.decorate(message) : message;
-//        System.out.println(message);
+        OutputFormatter outputFormatter = new OutputFormatterFactory().createByFormat(formatType);
+        outputFormatter.printToConsole(readFile.readData(file));
 
-        System.out.println("I convert CSV output format");
     }
 
 }
