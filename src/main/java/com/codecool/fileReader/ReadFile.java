@@ -10,10 +10,7 @@ import java.io.FileNotFoundException;
 @Component
 public class ReadFile {
 
-    private File file;
-
     public ReadFile(){}
-
 
     public BufferedReader readData(File file) {
         BufferedReader br = null;
